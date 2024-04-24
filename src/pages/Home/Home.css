@@ -1,4 +1,4 @@
-.Login_Btn::before {
+.Link_Btn::before {
   content: '';
   position: absolute;
   bottom: -5%;
@@ -17,7 +17,7 @@
   transition: transform 0.4s cubic-bezier(1, 0, 0, 1)
 }
 
-.Login_Btn:hover::before {
+.Link_Btn:hover::before {
   -webkit-transform-origin: left top;
   -ms-transform-origin: left top;
   transform-origin: left top;

@@ -1,72 +1,55 @@
 import { useNavigate } from "react-router-dom";
-import './Home.css'
+import "./Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
 
   const linkLogin = () => {
-    navigate('/user');
+    navigate("/user");
   };
-	
-	const linkLoginSuc = () => {
-		navigate("/post/list/0");
-	};
-	
-	const linkIDE = () => {
-		navigate("/code");
-	};
-	
-	const token = localStorage.getItem("access_token");
-	console.log("home");
+
+  const linkLoginSuc = () => {
+    navigate("/post/list/0");
+  };
+
+  const linkIDE = () => {
+    navigate("/code");
+  };
+
+  const token = localStorage.getItem("access_token");
+  console.log("home");
 
   return (
-    <div className="Home_Container" style={{
-      position: "absolute",
-      left: "50%",
-      top: "50%",
-      transform: "translate(-50%, -50%)"
-    }}>
-      <h1 style={{
-        fontSize: "100px",
-      }}>Image TO Code</h1>
-		{!token && (
-			<button 
-				className="Login_Btn" 
-				onClick={linkLogin} 
-				style={{
-				  width: "100%",
-				  fontSize: "40px",
-				  border: "0",
-				  backgroundColor: "transparent",
-			  }}>START
-			  </button>
-		  )}
-		  {token && (
-			  <div>
-				  <button 
-					className="Start_Btn" 
-					onClick={linkLoginSuc}
-					style={{
-					  width: "100%",
-					  fontSize: "40px",
-					  border: "0",
-					  backgroundColor: "transparent",
-				  }}>START
-				  </button>
-				  <button 
-					className="Go_IDE" 
-					onClick={linkIDE}
-					style={{
-					  width: "100%",
-					  fontSize: "40px",
-					  border: "0",
-					  backgroundColor: "transparent",
-				  }}>Go to IDE
-				  </button>
-				</div>
-		  )}
+    <div className="transform -translate-x-[50%] -translate-y-[50%] Home_Container fixed top-1/2 left-1/2">
+      <h1 className="text-3xl font-bold md:text-5xl lg:text-7xl">
+        Image TO Code
+      </h1>
+      {!token && (
+        <button
+          className="w-full mt-20 text-4xl font-bold bg-transparent border-0 Link_Btn"
+          onClick={linkLogin}
+        >
+          START
+        </button>
+      )}
+      {token && (
+        <div>
+          <button
+            className="w-full mt-20 text-4xl font-bold bg-transparent border-0 Link_Btn"
+            onClick={linkLoginSuc}
+          >
+            START
+          </button>
+          <button
+            className="w-full mt-2 text-4xl font-bold bg-transparent border-0 Link_Btn"
+            onClick={linkIDE}
+          >
+            Go to IDE
+          </button>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default Home;
