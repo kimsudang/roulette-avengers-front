@@ -8,10 +8,10 @@ const MyCodeIDE = () => {
 	
   return (
     <div>
-      <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
-        <h1>Roulette IDE</h1>
+      <div className="flex justify-between">
+        <h1 className="mt-3 ml-2.5 text-3xl font-bold">Roulette IDE</h1>
         <div style={{alignItems:"center"}}>
-          <button onClick={handleCodeSave} style={{width:"100px", height:"40px", margin:"10px 10px", fontSize:"20px"}}> 저장 </button>
+          <button onClick={handleCodeSave} className="w-[100px] h-10 m-2.5 text-xl"> 저장 </button>
         </div>
       </div>
       <MyEditor onSaveMycode={handleCodeSave} />
