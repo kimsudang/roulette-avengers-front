@@ -16,9 +16,6 @@ const MyPostLayout = ({post}) => {
 				</div>
 				<div className="mt-2.5 mb-1 w-full h-fit-content">
 					<p className="m-0 p-1 text-[#474747]">제목: {post.title}</p>
-					<div className="dropdown-container">
-						<p>작성자: {post.name}</p>
-					</div>
 				</div>
 			</Link>
 		</div>
