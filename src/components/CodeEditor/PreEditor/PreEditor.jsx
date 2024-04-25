@@ -86,10 +86,13 @@ function PreEditor({postId, code}) {
 		const html = JSON.stringify(html_edit);
 		const css = JSON.stringify(css_edit);
 		const js = JSON.stringify(js_edit);
+		const encodedHtml = encodeURIComponent(html);
+		const encodedCss = encodeURIComponent(css);
+		const encodedJs = encodeURIComponent(js);
 		const memberId = localStorage.getItem('member_id');
 		try {
 			const access_token = localStorage.getItem('access_token');
-			const response = await axios.get(`${redirect_uri}/post/choice/${memberId}/${postIdNum}/${html}${css}/${js}`, {
+			const response = await axios.get(`${redirect_uri}/post/choice/?memberId=${memberId}&postId=${postIdNum}&html=${encodedHtml}&css=${encodedCss}&js=${encodedJs}`, {
 				headers: { 
 					'Content-Type': 'application/json',
 					'Authorization': `Bearer ${access_token}`,
