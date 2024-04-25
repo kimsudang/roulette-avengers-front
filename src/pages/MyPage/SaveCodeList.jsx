@@ -1,37 +1,46 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import SaveCodeLayout from "../../components/PostLayout/SaveCode/SaveCodeLayout";
+import MyCodeLayout from "../../components/PostLayout/MyCode/MyCodeLayout"
+import axios from "axios";
 
 const SaveCodeList = () => {
-  const [code, setCode] = useState('');
-  const back = 'https://k9bceeba41403a.user-app.krampoline.com/mypage/code';
+  const [code, setCode] = useState([]);
+  const redirect_uri = import.meta.env.VITE_REDIRECT_URI;
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    const loadSaveCodeList = async () => {
       try {
-        const accessToken = localStorage.getItem('access_token');
-        const response = await axios.get(`${back}`, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
+        const access_token =  localStorage.getItem('access_token');
+        const response = await axios.get(`${redirect_uri}/code`, {
+          headers : {
+            Authorization: `Bearer ${access_token}`,
+          }
         });
-        const myCodes = response.data;
-        console.log(myCodes);
-        setCode(myCodes);
+        const res = response.data;
+        console.log(res);
+        setCode(res);
       } catch (error) {
-        console.error('Error fetching posts: ', error);
+        console.error('Failed to get saved code list: ', error);
       }
-    };
-    fetchPosts();
+    } 
+    loadSaveCodeList();
   }, []);
 
   return (
-    <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 ml-[10%] mr-[10%] mb-10 justify-items-center'>
-      {code?.map(code => (
-        <SaveCodeLayout key={code.replyId} code={code} />
-      ))}
+    <div className="flex flex-col">
+      <div className="flex justify-center pt-5 pb-5 border border-b-custom-pink-1">
+        <p className="text-3xl font-semibold ">저장한 코드 목록</p>
+      </div>
+      <div>
+        <div className="flex justify-center pt-10 pb-10">
+          <div className="flex w-1/2 h-screen border border-black rounded overflow-y-auto">
+						{Array.isArray(posts) && posts.map(post => (
+							<SaveCodeLayout code={code} />
+						))}
+          </div>
+        </div>
+      </div> 
     </div>
   )
 }
 
-export default SaveCodeList
+export default SaveCodeList;
