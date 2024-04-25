@@ -18,7 +18,7 @@ const PostCodePreview = () => {
 		const fetchcode = async () => {
 			try {
 				const access_token = localStorage.getItem('access_token');
-        const replyIdPayload = { replyId: replyIdNum };
+        const replyIdPayload = { postId: replyIdNum };
 				console.log(replyIdPayload);
 				const response = await axios.post(`${redirect_uri}/post/preview`, replyIdPayload, {
 						headers: {
