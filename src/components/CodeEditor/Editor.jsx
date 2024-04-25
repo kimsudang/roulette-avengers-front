@@ -18,9 +18,9 @@ function Editor({postId}) {
 	const redirect_uri = import.meta.env.VITE_BACK_REDIRECT_URI;
 	const postIdNum = postId;
 	
-	const handleNameChange = useCallback((value) => {
-		setName(value);
-	}, []);
+	const handleNameChange = (e) => {
+		setName(e.target.value);
+	};
 	
 	const onChangeHtml = useCallback((value) => {
 		setHtml_Edit(value);
