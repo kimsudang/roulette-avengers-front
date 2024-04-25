@@ -12,7 +12,7 @@ const MyPostLayout = ({post}) => {
 		<div className="flex flex-col w-[270px] h-[350px] border border-custom-pink-1 p-2.5 rounded">
 			<Link to={`/post/${post.postId}`}>
 				<div className="w-full h-[200px]">
-				<img className='w-full h-[200px]' src={`data:image/png;base64,${post.imgBase64}`} alt="사진" />
+				<img className='w-full h-[200px]' src={post.imgSrc} alt="사진" />
 				</div>
 				<div className="mt-2.5 mb-1 w-full h-fit-content">
 					<p className="m-0 p-1 text-[#474747]">제목: {post.title}</p>
