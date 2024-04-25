@@ -37,12 +37,12 @@ const CodeLayout = ({ postId, code }) => {
 	};
 
     return (
-        <div className='w-full h-[100px] border border-[#d5d5d5]'>
+        <div className='mb-2 w-full h-[100px] border border-[#d5d5d5] rounded'>
             <div className="flex justify-between items-center">
                 <div>
                     <div>
                         <div className="flex p-2">
-                            <div className="p-2">
+                            <div className="mr-4 p-2">
                                 <p>답변자: {code.memberName}</p>
                             </div>
                             <button onClick={() => startChating(code.memberId)} className="p-1 w-[40px] h-10 border border-custom-pink-1 text-[#474747] rounded bg-custom-pink-1 hover:bg-custom-pink-3 transition-colors duration-300">

@@ -40,12 +40,12 @@ function PostDetailReq() {
               <div className="mr-3 border border-custom-pink-2 w-[800px] h-[500px] rounded" >
                 <img src={`data:image/png;base64,${post.imgBase64}`} alt="사진" />
               </div>
-              <p className='w-[800px] h-fit border border-[#d5d5d5]'>작성자:{post.name}</p>
-              <p className='w-[800px] h-fit border border-[#d5d5d5]'>내용: {post.content}</p>
+              <p className='mt-2 mb-2 p-1 w-[800px] h-8 border border-[#d5d5d5] rounded'>작성자:{post.name}</p>
+              <p className='mt-2 mb-2 p-1 w-[800px] h-[52px] border border-[#d5d5d5] rounded'>내용: {post.content}</p>
             </div>
-            <div className='answerList-container border border-custom-pink-2 p-1 w-[350px] h-[600px] rounded overflow-y-auto'>
+            <div className='border border-custom-pink-2 p-2 w-[420px] h-[600px] rounded overflow-y-auto'>
               {code?.map(code => (
-                <CodeLayout key={code.replyId} postId={post.postId} code={code} />
+                <CodeLayout key={code.replyId} postId={post.postId} post={post} code={code} />
               ))}
             </div>
           </div>
