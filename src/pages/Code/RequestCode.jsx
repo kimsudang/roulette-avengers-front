@@ -77,6 +77,7 @@ function CodeQuestion () {
         onChange={handleTitleChange} 
         placeholder="제목"
         style={{margin:"5px 0px", width:"50%"}}
+		  required
       />
       <textarea
         value={contents} 
@@ -88,6 +89,7 @@ function CodeQuestion () {
           width: "100%",
           resize: "none",
           overflowY: "auto"}}
+		  required
       />
       <input 
         type="file" 
