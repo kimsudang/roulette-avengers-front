@@ -3,7 +3,7 @@ import Mail from '../../assets/mail.png';
 
 const CodeLayout = ({ postId, code }) => {
 	const postIdNum = postId;
-	const navigate = useNavigate();
+	const redirect_uri = import.meta.env_VITE_BACK_REDIRECT_URI;
 	
 	const startChating = async (receiverId) => {
 		const my_member_id = localStorage.getItem('member_id');
@@ -16,7 +16,7 @@ const CodeLayout = ({ postId, code }) => {
 				message: chat_message,
 			});
 			console.log('대화 시작');
-			navigate(${back}/chat/${my_member_id});
+			window.location = `${redirect_uri}/chat/${my_member_id}`;
 		} catch (error) {
 			alert('대화 요청을 실패하였습니다.');
 		}
