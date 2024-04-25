@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const PostLayout = ({post}) => {
 	const navigate = useNavigate();
-	const redirect_uri = import.meta.env_VITE_BACK_REDIRECT_URI;
+	const redirect_uri = import.meta.env.VITE_BACK_REDIRECT_URI;
 
 	const startChating = async (memberId) => {
 		const member_id = localStorage.getItem('member_id');
