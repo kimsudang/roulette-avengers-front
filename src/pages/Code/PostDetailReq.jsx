@@ -38,7 +38,7 @@ function PostDetailReq() {
           <div className="flex justify-center mt-5 mb-5 p-5 border-t border-custom-pink-1">
             <div>
               <div className="mr-3 border border-custom-pink-2 w-[800px] h-[500px] rounded" >
-                <img src={`data:image/png;base64,${post.imgBase64}`} alt="사진" />
+                <img className="w-[800px] h-[500px]" src={`data:image/png;base64,${post.imgBase64}`} alt="사진" />
               </div>
               <p className='mt-2 mb-2 p-1 w-[800px] h-8 border border-[#d5d5d5] rounded'>작성자:{post.name}</p>
               <p className='mt-2 mb-2 p-1 w-[800px] h-[52px] border border-[#d5d5d5] rounded'>내용: {post.content}</p>

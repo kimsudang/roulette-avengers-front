@@ -8,7 +8,7 @@ import CodeMirror from "@uiw/react-codemirror";
 import '../styles/Editor.css';
 import axios from "axios";
 
-function PreEditor({postId, code}) {
+function PreEditor({postId, replyIdNum, code}) {
 	const navigate = useNavigate();
 	const [html_edit, setHtml_Edit] = useState('');
 	const [css_edit, setCss_Edit] = useState('');
@@ -16,6 +16,7 @@ function PreEditor({postId, code}) {
 	const [srcCode, setSrcCode] = useState('');
 	const redirect_uri = import.meta.env.VITE_BACK_REDIRECT_URI;
 	const postIdNum = postId;
+	const codeId = replyIdNum;
 	
 	useEffect(() => {
     // code 값이 변화할 때 초기 값을 설정하고, srcCode를 업데이트합니다.
@@ -106,7 +107,7 @@ function PreEditor({postId, code}) {
         try {
           const access_token = localStorage.getItem('access_token');
           const response = await axios.put(
-            `${redirect_uri}/code/choice/${memberId}`,
+            `${redirect_uri}/code/choice/${codeId}`,
                 {}, // 빈 객체가 데이터를 나타냄
                 {
               headers: { 
