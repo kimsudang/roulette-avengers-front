@@ -80,8 +80,9 @@ function Editor({postId}) {
 					type="text" 
 					value={code_title} 
 					onChange={handleNameChange} 
-					placeholder="제목"
 					className="mt-[5px] mb-[5px] w-[100px]"
+					placeholder="제목을 입력하세요."
+					required
       			/>
 			</div>
       <div className="editor-container">

@@ -82,7 +82,7 @@ function MyEditor({onSaveMycode}) {
     <div>
       <div className="editor-container">
 		<div>
-			<input type="text" value={code_title} onChange={onChangeTitle} placeholder="제목을 입력하세요." />
+			<input type="text" value={code_title} onChange={onChangeTitle} placeholder="제목을 입력하세요." required/>
 		</div>
         <div className="editor-grid">
           <div className="editor">
