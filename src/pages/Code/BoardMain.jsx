@@ -35,23 +35,18 @@ const BoardMain = ({ defaultCurrentPage }) => {
   };
 
   return (
-    <div>
-      <h1>게시판</h1>
-      <div className="BoardMain-container" style={{width: '100%', borderTop: '1px solid #ffe6e6'}} >
-        <div className="questionBtn-container" style={{ display: "flex", flexDirection: "row-reverse" }}>
-          <Link to="/post/ask" style={{
-            backgroundColor: "#ff9e9e",
-            margin: "5px",
-            padding: "5px 10px",
-            border: "1px solid black",
-            color: "black",
-            textDecoration: "none"
-          }}> 질문하기 </Link>
+    <div className="flex flex-col">
+      <h1 className='mt-6 mb-2 pb-4 pl-[160px] text-3xl font-bold'> 게시판 </h1>
+      <div className="w-full border-t border-custom-pink-1" >
+        <div className="flex flex-row-reverse">
+          <Link to="/code/ask" className='mt-5 mb-5 mr-[160px] pt-1 pb-1 pl-3 pr-3 border border-custom-pink-1 bg-custom-pink-2 text-[#474747] no-underline rounded'> 
+            질문하기
+          </Link>
         </div>
-        <div className="post-list-container">
+        <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 ml-[10%] mr-[10%] mb-10 justify-items-center'>
           {posts?.map(post => (
-    				<PostLayout key={post.postId} post={post} />
-  				))}
+            <PostLayout key={post.postId} post={post} />
+          ))}
         </div>
       </div>
       <div className="pagination">
