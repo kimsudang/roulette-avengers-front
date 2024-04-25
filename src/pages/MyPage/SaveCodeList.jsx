@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import MyCodeLayout from "../../components/PostLayout/MyCode/MyCodeLayout"
+import SaveCodeLayout from "../../components/PostLayout/SaveCode/SaveCodeLayout"
 import axios from "axios";
 
 const SaveCodeList = () => {
