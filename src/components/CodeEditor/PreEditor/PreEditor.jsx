@@ -92,7 +92,7 @@ function PreEditor({postId, code}) {
 		const memberId = localStorage.getItem('member_id');
 		try {
 			const access_token = localStorage.getItem('access_token');
-			//const response = await axios.get(`${redirect_uri}/post/choice/?memberId=${memberId}&postId=${postIdNum}&html=${encodedHtml}&css=${encodedCss}&js=${encodedJs}`, {
+			// const response = await axios.get(`${redirect_uri}/post/choice/?memberId=${memberId}&postId=${postIdNum}&html=${encodedHtml}&css=${encodedCss}&js=${encodedJs}`, {
 			const response = await axios.get(`${redirect_uri}/code/choice/${memberId}`, {
 			
             headers: { 
