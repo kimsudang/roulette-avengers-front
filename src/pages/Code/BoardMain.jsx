@@ -23,6 +23,7 @@ const BoardMain = ({ defaultCurrentPage }) => {
 					const res = response.data;
 					setPosts(res.content);
 					setTotalPages(res.totalPages);
+		  			console.log('가져온 게시글:', res); 
 				} catch (error) {
 					console.error('Error fetching posts:', error);
 				}
