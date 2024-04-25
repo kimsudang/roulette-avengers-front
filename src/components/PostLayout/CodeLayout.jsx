@@ -17,7 +17,7 @@ const CodeLayout = ({ postId, code }) => {
         message: chat_message,
       });
       console.log('대화 시작');
-      navigate(`${back}/chat/start?memberId=${post.memberId}`);
+      navigate(`${back}/chat/${my_member_id}`);
     } catch (error) {
       alert('대화 요청을 실패하였습니다.');
     }
