@@ -13,6 +13,12 @@ function MyEditor({onSaveMycode}) {
   const [js_edit, setJs_Edit] = useState('');
   const [srcCode, setSrcCode] = useState('');
 	const redirect_uri = import.meta.env.VITE_BACK_REDIRECT_URI;
+	
+// 	codeTitle 넘겨주기
+	const [code_title, setCodeTitle] = useState('');
+	const onChangeTitle = (e) => {
+		setCodeTitle(e.target.value);
+	};
 
 // 기능1: result 컴포넌트에 editor에서 작성된 코드 넘겨주기
   const onChangeHtml = useCallback((value) => {
@@ -45,7 +51,11 @@ function MyEditor({onSaveMycode}) {
 			const html = JSON.stringify(html_edit);
 			const css = JSON.stringify(css_edit);
 			const js = JSON.stringify(js_edit);
+			const memberId = localStorage.getItem('member_id');
+			const codeTitle = JSON.stringify(code_title);
 			const code = {
+				memberId: memberId,
+				codeTitle: codeTitle,
 				html: html,
 				css: css,
 				js: js,
@@ -59,6 +69,7 @@ function MyEditor({onSaveMycode}) {
 					}
 				});
 				console.log('Save response:', response.data);
+				console.log(code);
 			} catch (error) {
 				console.error('Error saving code:', error);
 			}
@@ -70,6 +81,9 @@ function MyEditor({onSaveMycode}) {
   return (
     <div>
       <div className="editor-container">
+		<div>
+			<input type="text" value={code_title} onChange={onChangeTitle} placeholder="제목을 입력하세요." required/>
+		</div>
         <div className="editor-grid">
           <div className="editor">
             <h2 className="editor-title">HTML</h2>

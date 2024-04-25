@@ -13,7 +13,6 @@ import Chat from "./pages/Chat/Chat";
 import CodeIDE from "./pages/Code/CodeIDE";
 import MyCodeIDE from "./pages/Code/MyCodeIDE";
 import RequestList from "./pages/MyPage/RequestList";
-import AnswerList from "./pages/MyPage/AnswerList";
 import SaveCodeList from "./pages/MyPage/SaveCodeList";
 import Myinfo from "./pages/MyPage/Myinfo";
 import PostCodePreview from "./pages/Code/PostCodePreview";
@@ -48,7 +47,6 @@ function App() {
             <Route path="/mypage/member" element={<Myinfo />} />
             <Route path="/mypage/list" element={<RequestList />} />
             <Route path="/mypage/code" element={<SaveCodeList />} />
-            <Route path="/mypage/post" element={<AnswerList />} />
           </Routes>
         </div>
         <Footer />

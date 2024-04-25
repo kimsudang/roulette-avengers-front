@@ -8,7 +8,7 @@ import CodeMirror from "@uiw/react-codemirror";
 import '../styles/Editor.css';
 import axios from "axios";
 
-function PreEditor({postId, code}) {
+function PreEditor({postId, replyIdNum, code}) {
 	const navigate = useNavigate();
 	const [html_edit, setHtml_Edit] = useState('');
 	const [css_edit, setCss_Edit] = useState('');
@@ -16,6 +16,7 @@ function PreEditor({postId, code}) {
 	const [srcCode, setSrcCode] = useState('');
 	const redirect_uri = import.meta.env.VITE_BACK_REDIRECT_URI;
 	const postIdNum = postId;
+	const codeId = replyIdNum;
 	
 	useEffect(() => {
     // code 값이 변화할 때 초기 값을 설정하고, srcCode를 업데이트합니다.
@@ -56,32 +57,73 @@ function PreEditor({postId, code}) {
 		setSrcCode(srcCodeUpdated);
 	}, [html_edit, css_edit, js_edit]);
 
+	// const choiceCode = async () => {
+	// 	const html = JSON.stringify(html_edit);
+	// 	const css = JSON.stringify(css_edit);
+	// 	const js = JSON.stringify(js_edit);
+	// 	const memberId = localStorage.getItem('member_id');
+	// 	const code = {
+	// 		memberId: memberId,
+	// 		postId: postIdNum,
+	// 		html: html,
+	// 		css: css,
+	// 		js: js,
+	// 	};
+	// 	try {
+	// 		const access_token = localStorage.getItem('access_token');
+	// 		const response = await axios.post(`${redirect_uri}/post/choice`, code, {
+	// 			headers: {
+	// 				'Content-Type': 'application/json',
+	// 				'Authorization': `Bearer ${access_token}`,
+	// 			}
+	// 		});
+	// 		console.log('Save response:', response.data);
+	// 		navigate('/post/list/0');
+	// 	} catch (error) {
+	// 		console.error('Error saving code:', error);
+	// 	}
+	// };
 	const choiceCode = async () => {
 		const html = JSON.stringify(html_edit);
 		const css = JSON.stringify(css_edit);
 		const js = JSON.stringify(js_edit);
+		const encodedHtml = encodeURIComponent(html);
+		const encodedCss = encodeURIComponent(css);
+		const encodedJs = encodeURIComponent(js);
 		const memberId = localStorage.getItem('member_id');
-		const code = {
-			memberId: memberId,
-			postId: postIdNum,
-			html: html,
-			css: css,
-			js: js,
-		};
-		try {
+		/*try {
 			const access_token = localStorage.getItem('access_token');
-			const response = await axios.post(`${redirect_uri}/reply`, code, {
-				headers: {
+			// const response = await axios.get(`${redirect_uri}/post/choice/?memberId=${memberId}&postId=${postIdNum}&html=${encodedHtml}&css=${encodedCss}&js=${encodedJs}`, {
+			const response = await axios.put(`${redirect_uri}/code/choice/${memberId}`, {
+			
+            headers: { 
 					'Content-Type': 'application/json',
 					'Authorization': `Bearer ${access_token}`,
 				}
 			});
 			console.log('Save response:', response.data);
 			navigate('/post/list/0');
-		} catch (error) {
-			console.error('Error saving code:', error);
+		}*/
+        try {
+          const access_token = localStorage.getItem('access_token');
+					console.log(codeId);
+          const response = await axios.put(
+            `${redirect_uri}/code/choice/${codeId}`,
+                {}, // 빈 객체가 데이터를 나타냄
+                {
+              headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${access_token}`,
+          }
+            }
+          );
+      console.log('Save response:', response.data);
+          navigate('/post/list/0');
+        }
+        catch (error) {
+			console.error('Error choice code:', error);
 		}
-	};
+	}
 	
 // 	화면에 보여지는 코드 편집기 부분
   return (

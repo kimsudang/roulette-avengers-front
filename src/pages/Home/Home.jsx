@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <div className="transform -translate-x-[50%] -translate-y-[50%] Home_Container fixed top-1/2 left-1/2">
       <h1 className="text-3xl font-bold md:text-5xl lg:text-7xl">
-        Image TO Code
+        Catch CODE
       </h1>
       {!token && (
         <button

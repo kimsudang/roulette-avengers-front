@@ -1,18 +1,60 @@
-import { Link, useNavigate } from "react-router-dom";
-import "./PostLayout.css";
+import { Link } from "react-router-dom";
+import Mail from '../../assets/mail.png';
+import axios from 'axios';
 
 const CodeLayout = ({ postId, code }) => {
-    const navigate = useNavigate(); // navigate 함수를 여기서 사용하지 않는다면 제거 가능
-	const post_Id = postId;
+    const post_Id = postId;
+    const backendURI = import.meta.env.VITE_BACK_REDIRECT_URI; // Using environment variable
+
+    const startChating = async (memberId) => {
+        const member_id = localStorage.getItem('member_id');
+				const my_member_id = parseInt(member_id, 10);
+        const chat_member_id = memberId;
+        const chat_message = '대화을 시작합니다.';
+        
+        try {
+            const res = await axios.post(`${backendURI}/chat/start`, {
+                sender: my_member_id,
+                receiver: chat_member_id,
+                message: chat_message,
+            });
+            console.log('대화 시작');
+            window.location = `${backendURI}/chat/${my_member_id}`; // Using environment variable for redirection
+        } catch (error) {
+            alert('대화 요청을 실패하였습니다.');
+        }
+    };
+	
+	const formatDate = (dateTimeStr) => {
+		const date = new Date(dateTimeStr);
+		return new Intl.DateTimeFormat('ko-KR', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+			hour: '2-digit',
+			minute: '2-digit'
+		}).format(date);
+	};
 
     return (
-        <div className='answerContainer' style={{ backgroundColor: "#d5d5d5" }}>
-            <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+        <div className='mb-2 w-full h-[100px] border border-[#d5d5d5] rounded'>
+            <div className="flex justify-between items-center">
                 <div>
-                    <p>답변자: {code.memberName}</p>
-                    <p>작성시간: {code.createTime}</p>
+                    <div>
+                        <div className="flex p-2">
+                            <div className="mr-4 p-2">
+                                <p>답변자: {code.memberName}</p>
+                            </div>
+                            <button onClick={() => startChating(code.memberId)} className="p-1 w-[40px] h-10 border border-custom-pink-1 text-[#474747] rounded bg-custom-pink-1 hover:bg-custom-pink-3 transition-colors duration-300">
+                                <img className="w-[30px]" src={Mail} />
+                            </button>
+                        </div>
+                        <div className="ml-2 p-2">
+                            <p>작성시간: {formatDate(code.createTime)}</p>
+                        </div>
+                    </div>
                 </div>
-                <Link to={`/post/preview?postId=${post_Id}&replyId=${code.replyId}`} className="preview-Btn">
+                <Link to={`/post/preview?postId=${post_Id}&replyId=${code.replyId}`} className="mr-2 p-2 h-10 border border-custom-pink-1 text-[#474747] rounded bg-custom-pink-1 hover:bg-custom-pink-3 transition-colors duration-300">
                     미리보기
                 </Link>
             </div>
@@ -20,4 +62,4 @@ const CodeLayout = ({ postId, code }) => {
     );
 };
 
-export default CodeLayout; 
+export default CodeLayout;

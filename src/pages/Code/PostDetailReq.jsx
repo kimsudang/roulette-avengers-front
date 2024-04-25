@@ -34,18 +34,18 @@ function PostDetailReq() {
     <div className='postDetail-container'>
       {post ? (
         <div>
-          <h1>{post.title}</h1>
-          <div style={{display:"flex", justifyContent:"center", flexDirection:"row"}}>
-            <div className="post-information" style={{padding:"10px"}}>
-              <div style={{backgroundColor:"#FF9E9E", width:"500px", height:"500px"}}>
-                <img src={`data:image/png;base64,${post.imgBase64}`} alt="사진" />
+          <h1 className='mt-4 ml-5 text-3xl'>제목:{post.title}</h1>
+          <div className="flex justify-center mt-5 mb-5 p-5 border-t border-custom-pink-1">
+            <div>
+              <div className="mr-3 border border-custom-pink-2 w-[800px] h-[500px] rounded" >
+                <img className="w-[800px] h-[500px]" src={`data:image/png;base64,${post.imgBase64}`} alt="사진" />
               </div>
-              <p>{post.name}</p>
-              <p>{post.content}</p>
+              <p className='mt-2 mb-2 p-1 w-[800px] h-8 border border-[#d5d5d5] rounded'>작성자:{post.name}</p>
+              <p className='mt-2 mb-2 p-1 w-[800px] h-[52px] border border-[#d5d5d5] rounded'>내용: {post.content}</p>
             </div>
-            <div className='answerList-container' style={{border:"1px solid black", margin:"10px", padding:"10px", width:"800px", height:"600px"}}>
+            <div className='border border-custom-pink-2 p-2 w-[420px] h-[600px] rounded overflow-y-auto'>
               {code?.map(code => (
-                <CodeLayout key={code.replyId} postId={post.postId} code={code} />
+                <CodeLayout key={code.replyId} postId={post.postId} post={post} code={code} />
               ))}
             </div>
           </div>

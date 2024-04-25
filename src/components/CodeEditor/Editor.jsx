@@ -10,13 +10,18 @@ import axios from "axios";
 
 function Editor({postId}) {
 	const navigate = useNavigate();
+	const [code_title, setName] = useState('');
 	const [html_edit, setHtml_Edit] = useState('');
 	const [css_edit, setCss_Edit] = useState('');
 	const [js_edit, setJs_Edit] = useState('');
 	const [srcCode, setSrcCode] = useState('');
 	const redirect_uri = import.meta.env.VITE_BACK_REDIRECT_URI;
 	const postIdNum = postId;
-
+	
+	const handleNameChange = (e) => {
+		setName(e.target.value);
+	};
+	
 	const onChangeHtml = useCallback((value) => {
 		setHtml_Edit(value);
 	}, []);
@@ -39,11 +44,13 @@ function Editor({postId}) {
 	}, [html_edit, css_edit, js_edit]);
 
 	const saveCodeToBackend = async () => {
+		const codeTitle = JSON.stringify(code_title);
 		const html = JSON.stringify(html_edit);
 		const css = JSON.stringify(css_edit);
 		const js = JSON.stringify(js_edit);
 		const memberId = localStorage.getItem('member_id');
 		const code = {
+			codeTitle: codeTitle,
 			memberId: memberId,
 			postId: postIdNum,
 			html: html,
@@ -67,7 +74,17 @@ function Editor({postId}) {
 // 	화면에 보여지는 코드 편집기 부분
   return (
     <div>
-	<button onClick={saveCodeToBackend} style={{width:"100px", height:"40px", margin:"10px 10px", fontSize:"20px"}}> 저장 </button>
+			<div className="flex">
+				<button className="m-[10px] w-[100px] h-10 font-[20px]" onClick={saveCodeToBackend} > 저장 </button>
+				<input 
+					type="text" 
+					value={code_title} 
+					onChange={handleNameChange} 
+					className="mt-[5px] mb-[5px] w-[100px]"
+					placeholder="제목을 입력하세요."
+					required
+      			/>
+			</div>
       <div className="editor-container">
         <div className="editor-grid">
           <div className="editor">
