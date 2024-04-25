@@ -48,13 +48,14 @@ function MyEditor({onSaveMycode}) {
 // 	기능3. 나만의 ide 코드 저장 기능
 	useEffect(() => {
 		const saveMyCode = async() => {
-			const code_title = JSON.stringify(code_title);
 			const html = JSON.stringify(html_edit);
 			const css = JSON.stringify(css_edit);
 			const js = JSON.stringify(js_edit);
 			const memberId = localStorage.getItem('member_id');
+			const codeTitle = JSON.stringify(code_title);
 			const code = {
 				memberId: memberId,
+				codeTitle: codeTitle,
 				html: html,
 				css: css,
 				js: js,
@@ -79,7 +80,9 @@ function MyEditor({onSaveMycode}) {
   return (
     <div>
       <div className="editor-container">
-		<input type="text" value={code_title} onChange={onChangeTitle} placeholder="제목을 입력하세요." />
+		<div>
+			<input type="text" value={code_title} onChange={onChangeTitle} placeholder="제목을 입력하세요." />
+		</div>
         <div className="editor-grid">
           <div className="editor">
             <h2 className="editor-title">HTML</h2>
