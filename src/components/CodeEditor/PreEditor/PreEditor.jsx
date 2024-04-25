@@ -90,10 +90,10 @@ function PreEditor({postId, code}) {
 		const encodedCss = encodeURIComponent(css);
 		const encodedJs = encodeURIComponent(js);
 		const memberId = localStorage.getItem('member_id');
-		try {
+		/*try {
 			const access_token = localStorage.getItem('access_token');
 			// const response = await axios.get(`${redirect_uri}/post/choice/?memberId=${memberId}&postId=${postIdNum}&html=${encodedHtml}&css=${encodedCss}&js=${encodedJs}`, {
-			const response = await axios.get(`${redirect_uri}/code/choice/${memberId}`, {
+			const response = await axios.put(`${redirect_uri}/code/choice/${memberId}`, {
 			
             headers: { 
 					'Content-Type': 'application/json',
@@ -102,7 +102,23 @@ function PreEditor({postId, code}) {
 			});
 			console.log('Save response:', response.data);
 			navigate('/post/list/0');
-		} catch (error) {
+		}*/
+        try {
+          const access_token = localStorage.getItem('access_token');
+          const response = await axios.put(
+            `${redirect_uri}/code/choice/${memberId}`,
+                {}, // 빈 객체가 데이터를 나타냄
+                {
+              headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${access_token}`,
+          }
+            }
+          );
+      console.log('Save response:', response.data);
+          navigate('/post/list/0');
+        }
+        catch (error) {
 			console.error('Error choice code:', error);
 		}
 	}
