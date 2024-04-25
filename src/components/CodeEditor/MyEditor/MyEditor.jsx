@@ -69,6 +69,7 @@ function MyEditor({onSaveMycode}) {
 					}
 				});
 				console.log('Save response:', response.data);
+				console.log(code);
 			} catch (error) {
 				console.error('Error saving code:', error);
 			}
