@@ -1,9 +1,9 @@
 import MyEditor from "../../components/CodeEditor/MyEditor/MyEditor";
 
 const MyCodeIDE = () => {
-	
+
   const handleCodeSave = () => {
-		console.log('코드 저장 중...')
+		console.log('코드 저장 중...');
 	};
 	
   return (
