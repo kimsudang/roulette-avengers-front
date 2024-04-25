@@ -1,40 +1,25 @@
-
+import kakaoLogin from "./../../assets/kakao_login_medium_wide.png";
 const Login = () => {
   const CLIENT_ID = import.meta.env.VITE_KAKAO_CLIENT_ID;
-  const REDIRECT_URI = import.meta.env.VITE_FRONT_KAKAO_REDIRECT_URI;	
+  const REDIRECT_URI = import.meta.env.VITE_FRONT_KAKAO_REDIRECT_URI;
   // const REDIRECT_URI = 'https://k56733b335962a.user-app.krampoline.com/login/oauth2/callback/kakao';
   const link = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}`;
 
   const loginHandler = () => {
     window.location.href = link;
   };
-	
+
   return (
-		<div style={{
-			border: "1px solid #000000",
-			width: "40%",
-			height: "70%",
-			position: "absolute",
-			left: "50%",
-			top: "55%",
-			transform: "translate(-50%, -50%)"
-		}}>
-			<button type='button' onClick={loginHandler} style={{
-				width: "50%",
-				height: "60px",
-				fontSize: "20px",
-				borderRadius: "40px",
-				border: "0px",
-				backgroundColor: "yellow",
-				padding: "10px",
-				position: "absolute",
-				left: "50%",
-				top: "50%",
-				transform: "translate(-50%, -50%)"
-			}}>
-				카카오로 로그인 하기
-			</button>
-		</div>
+    <div className="w-1/2 min-h-96 absolute transform translate-x-[50%] translate-y-52">
+      <p className="ml-10 text-xl font-bold">Sign UP</p>
+      <button
+        type="button"
+        onClick={loginHandler}
+        className="w-1/2 h-60px border-0 p-10% mt-5 transform translate-x-1/2 translate-y-28"
+      >
+        <img src={kakaoLogin} className="w-full h-12 " />
+      </button>
+    </div>
   );
 };
 

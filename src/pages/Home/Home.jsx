@@ -26,22 +26,22 @@ const Home = () => {
       </h1>
       {!token && (
         <button
-          className="w-full mt-20 text-4xl font-bold bg-transparent border-0 Link_Btn"
+          className="w-full mt-20 text-2xl font-bold bg-transparent border-0 md:text-4xl Link_Btn"
           onClick={linkLogin}
         >
           START
         </button>
       )}
       {token && (
-        <div>
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
           <button
-            className="w-full mt-20 text-4xl font-bold bg-transparent border-0 Link_Btn"
+            className="w-full mt-20 text-2xl font-bold bg-transparent border-0 md:text-4xl Start_Btn"
             onClick={linkLoginSuc}
           >
             START
           </button>
           <button
-            className="w-full mt-2 text-4xl font-bold bg-transparent border-0 Link_Btn"
+            className="w-full mt-20 text-2xl font-bold bg-transparent border-0 md:text-4xl IDE_Btn"
             onClick={linkIDE}
           >
             Go to IDE
