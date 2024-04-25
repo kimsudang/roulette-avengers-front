@@ -1,27 +1,85 @@
-.Login_Btn::before {
-  content: '';
-  position: absolute;
-  bottom: -5%;
-  left: 30%;
-  width: 40%;
-  height: 2px;
-  background: #6098FF;
-  display: block;
-  -webkit-transform-origin: right top;
-  -ms-transform-origin: right top;
-  transform-origin: right top;
-  -webkit-transform: scale(0, 1);
-  -ms-transform: scale(0, 1);
-  transform: scale(0, 1);
-  -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
-  transition: transform 0.4s cubic-bezier(1, 0, 0, 1)
-}
+@media only screen and (min-width: 1080px) {
+  .Link_Btn::before {
+    content: "";
+    position: absolute;
+    bottom: -5%;
+    left: 30%;
+    width: 40%;
+    height: 2px;
+    background: #ffe6e6;
+    display: block;
+    -webkit-transform-origin: right top;
+    -ms-transform-origin: right top;
+    transform-origin: right top;
+    -webkit-transform: scale(0, 1);
+    -ms-transform: scale(0, 1);
+    transform: scale(0, 1);
+    -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+    transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+  }
 
-.Login_Btn:hover::before {
-  -webkit-transform-origin: left top;
-  -ms-transform-origin: left top;
-  transform-origin: left top;
-  -webkit-transform: scale(1, 1);
-  -ms-transform: scale(1, 1);
-  transform: scale(1, 1)
+  .Link_Btn:hover::before {
+    -webkit-transform-origin: left top;
+    -ms-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+
+  .Start_Btn::before {
+    content: "";
+    position: absolute;
+    bottom: -5%;
+    left: 5%;
+    width: 40%;
+    height: 2px;
+    background: #ffe6e6;
+    display: block;
+    -webkit-transform-origin: right top;
+    -ms-transform-origin: right top;
+    transform-origin: right top;
+    -webkit-transform: scale(0, 1);
+    -ms-transform: scale(0, 1);
+    transform: scale(0, 1);
+    -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+    transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+  }
+
+  .Start_Btn:hover::before {
+    -webkit-transform-origin: left top;
+    -ms-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+
+  .IDE_Btn::before {
+    content: "";
+    position: absolute;
+    bottom: -5%;
+    left: 55%;
+    width: 40%;
+    height: 2px;
+    background: #ffe6e6;
+    display: block;
+    -webkit-transform-origin: right top;
+    -ms-transform-origin: right top;
+    transform-origin: right top;
+    -webkit-transform: scale(0, 1);
+    -ms-transform: scale(0, 1);
+    transform: scale(0, 1);
+    -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+    transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+  }
+
+  .IDE_Btn:hover::before {
+    -webkit-transform-origin: left top;
+    -ms-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
 }

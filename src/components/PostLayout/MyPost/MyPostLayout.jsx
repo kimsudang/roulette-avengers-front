@@ -1,43 +1,25 @@
-import './MyPostLayout.css';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const MyPostLayout = ({ posts }) => {
-  const [dropdownPostId, setDropdownPostId] = useState(null);
 		
   if (!posts || posts.length === 0) {
     return <div className="post-container">작성한 게시글이 없습니다.</div>;
   }
-		
-  const toggleDropdown = (postId) => {
-    setDropdownPostId(postId === dropdownPostId ? null : postId);
-  };
 
   return (
-    <div className='postlist-container'>
-      {posts.map((post) => (
-        <div key={post.id} className="post-container">
-          <div className="image-container">
-            <img src={post.image} alt="이미지"/> 
-          </div>
-          <div className="post-info-container">
-            <div className="dropdown-container">
-              <button onClick={() => toggleDropdown(post.postId)} className="dropdown-toggle">
-                작성자: {posts.member_id}
-              </button>
-              {dropdownPostId === post.postId && (
-                <div className="dropdown-menu">
-                  <Link to={`/chat/start?member_id=${posts.member_id}`} className="receiver-chat-link">쪽지 보내기</Link>
-                </div>
-              )}
-            </div>
-            <div className='post-title'>
-              <p>제목: {post.title}</p>
-            </div>
-          </div>
+    <Link to={`/post/${posts.postId}`} key={posts.id} className="flex flex-col m-2.5 p-2.5 w-[270px] h-[300px] border border-[#d5d5d5] rounded">
+      <div className="w-full h-[200px]">
+        <img className="w-full h-[200px]" src={posts.image} alt="이미지"/> 
+      </div>
+      <div className="flex flex-col p-[5px]">
+        <div className='mt-[5px] ml-0 mb-0 mr-0 p-1 text-[#474747]'>
+          <p>제목: {posts.title}</p>
         </div>
-      ))}
-    </div>
+        <div className="mt-[5px] ml-0 mb-0 mr-0 p-1 text-[#474747]">
+          <p>작성시간: {posts.createdTime}</p>
+        </div>
+      </div>
+    </Link>
   );
 }
 
