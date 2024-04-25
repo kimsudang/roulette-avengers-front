@@ -56,32 +56,51 @@ function PreEditor({postId, code}) {
 		setSrcCode(srcCodeUpdated);
 	}, [html_edit, css_edit, js_edit]);
 
-	const choiceCode = async () => {
-		const html = JSON.stringify(html_edit);
-		const css = JSON.stringify(css_edit);
-		const js = JSON.stringify(js_edit);
+	// const choiceCode = async () => {
+	// 	const html = JSON.stringify(html_edit);
+	// 	const css = JSON.stringify(css_edit);
+	// 	const js = JSON.stringify(js_edit);
+	// 	const memberId = localStorage.getItem('member_id');
+	// 	const code = {
+	// 		memberId: memberId,
+	// 		postId: postIdNum,
+	// 		html: html,
+	// 		css: css,
+	// 		js: js,
+	// 	};
+	// 	try {
+	// 		const access_token = localStorage.getItem('access_token');
+	// 		const response = await axios.post(`${redirect_uri}/post/choice`, code, {
+	// 			headers: {
+	// 				'Content-Type': 'application/json',
+	// 				'Authorization': `Bearer ${access_token}`,
+	// 			}
+	// 		});
+	// 		console.log('Save response:', response.data);
+	// 		navigate('/post/list/0');
+	// 	} catch (error) {
+	// 		console.error('Error saving code:', error);
+	// 	}
+	// };
+	const choicecode = async () => {
+    const html = JSON.stringify(html_edit);
+    const css = JSON.stringify(css_edit);
+    const js = JSON.stringify(js_edit);
 		const memberId = localStorage.getItem('member_id');
-		const code = {
-			memberId: memberId,
-			postId: postIdNum,
-			html: html,
-			css: css,
-			js: js,
-		};
-		try {
-			const access_token = localStorage.getItem('access_token');
-			const response = await axios.post(`${redirect_uri}/post/choice`, code, {
-				headers: {
-					'Content-Type': 'application/json',
-					'Authorization': `Bearer ${access_token}`,
-				}
-			});
-			console.log('Save response:', response.data);
-			navigate('/post/list/0');
-		} catch (error) {
-			console.error('Error saving code:', error);
-		}
-	};
+    try {
+      const access_token = localStorage.getItem('access_token');
+      const response = await axios.get(`${redirect_uri}/post/choice/${memberId}/${postIdNum}/${html}${css}/${js}`, {
+        Headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${access_token}`,
+        }
+        console.log('Save response:', response.data);
+        navigate('/post/list/0');
+      });
+    } catch (error) {
+      console.error('Error choice code:', error);
+    }
+  }
 	
 // 	화면에 보여지는 코드 편집기 부분
   return (
