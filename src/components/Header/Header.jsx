@@ -58,7 +58,7 @@ const Header = () => {
           }}
         />
       </button>
-      {!token && (
+      {token && (
         <div
           className="button"
           style={{
