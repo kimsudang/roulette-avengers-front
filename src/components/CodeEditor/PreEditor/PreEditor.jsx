@@ -82,7 +82,7 @@ function PreEditor({postId, code}) {
 	// 		console.error('Error saving code:', error);
 	// 	}
 	// };
-	const choicecode = async () => {
+	const choiceCode = async () => {
 		const html = JSON.stringify(html_edit);
 		const css = JSON.stringify(css_edit);
 		const js = JSON.stringify(js_edit);
