@@ -10,7 +10,7 @@ const SaveCodeList = () => {
     const loadSaveCodeList = async () => {
       try {
         const access_token =  localStorage.getItem('access_token');
-        const response = await axios.get(`${redirect_uri}/code`, {
+        const response = await axios.get(`${redirect_uri}/mypage/code`, {
           headers : {
             Authorization: `Bearer ${access_token}`,
           }
