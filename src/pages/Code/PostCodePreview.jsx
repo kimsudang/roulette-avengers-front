@@ -6,19 +6,27 @@ import PreEditor from '../../components/CodeEditor/PreEditor/PreEditor';
 const PostCodePreview = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
+	console.log(searchParams);
 	const postId = searchParams.get('postId');
+	console.log(postId, typeof(postId));
   const postIdNum = parseInt(postId, 10);
+	console.log(postIdNum, typeof(postIdNum));
   const replyId = searchParams.get('replyId');
+	console.log(replyId, typeof(replyId));
   const replyIdNum = parseInt(replyId, 10);
+	console.log(replyIdNum, typeof(replyIdNum));
   const [code, setCode] = useState([]);
 	const redirect_uri = import.meta.env.VITE_BACK_REDIRECT_URI;
-
+	
 	
 	useEffect(() => {
 		const fetchcode = async () => {
 			try {
 				const access_token = localStorage.getItem('access_token');
-        const replyIdPayload = { postId: replyIdNum };
+        const replyIdPayload = { 
+					replyId: replyIdNum
+				};
+				console.log(replyIdNum+1);
 				console.log(replyIdPayload);
 				const response = await axios.post(`${redirect_uri}/post/preview`, replyIdPayload, {
 						headers: {
