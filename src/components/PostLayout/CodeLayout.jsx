@@ -24,6 +24,17 @@ const CodeLayout = ({ postId, code }) => {
             alert('대화 요청을 실패하였습니다.');
         }
     };
+	
+	const formatDate = (dateTimeStr) => {
+		const date = new Date(dateTimeStr);
+		return new Intl.DateTimeFormat('ko-KR', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+			hour: '2-digit',
+			minute: '2-digit'
+		}).format(date);
+	};
 
     return (
         <div className='w-full h-[100px] border border-[#d5d5d5]'>
@@ -39,7 +50,7 @@ const CodeLayout = ({ postId, code }) => {
                             </button>
                         </div>
                         <div className="ml-2 p-2">
-                            <p>작성시간: {code.createTime}</p>
+                            <p>작성시간: {formatDate(code.createTime)}</p>
                         </div>
                     </div>
                 </div>
