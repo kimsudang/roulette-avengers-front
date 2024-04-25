@@ -21,7 +21,7 @@ const RequestList = () => {
 		  if (!Array.isArray(myPosts)) {
 			throw new Error('응답이 배열이 아님');
 		  }
-		  setPosts(myPosts);
+		  setPosts(myPosts.postList);
 		} catch (error) {
 		  console.error('게시글 가져오기 오류:', error);
 		  // setPosts([]); // 필요에 따라 posts를 재설정하거나 처리
