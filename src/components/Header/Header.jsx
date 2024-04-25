@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom"
 import { useRef } from "react"
-import './Header.css'
 import Dropdown from './Dropdown'
 import Logo from '../../assets/roulette.png'
 import User from '../../assets/user.png'
