@@ -58,7 +58,7 @@ const SaveCodeLayout = (code) => {
           </div>
         </div>
         <div className="items-center">
-          <Link to=`/post/preview?postId={postId}&replyId={replyId}` className="mt-7 mr-10 p-2 h-10 border border-custom-pink-1 text-[#474747] rounded bg-custom-pink-1 hover:bg-custom-pink-3 transition-colors duration-300">
+          <Link to={`/post/preview?postId={postId}&replyId={replyId}`} className="mt-7 mr-10 p-2 h-10 border border-custom-pink-1 text-[#474747] rounded bg-custom-pink-1 hover:bg-custom-pink-3 transition-colors duration-300">
             미리보기
           </Link>
         </div>
