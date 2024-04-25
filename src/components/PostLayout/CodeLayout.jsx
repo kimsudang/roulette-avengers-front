@@ -7,7 +7,8 @@ const CodeLayout = ({ postId, code }) => {
     const backendURI = import.meta.env.VITE_BACK_REDIRECT_URI; // Using environment variable
 
     const startChating = async (memberId) => {
-        const my_member_id = localStorage.getItem('member_id');
+        const member_id = localStorage.getItem('member_id');
+				const my_member_id = parseInt(member_id, 10);
         const chat_member_id = memberId;
         const chat_message = '대화을 시작합니다.';
         
