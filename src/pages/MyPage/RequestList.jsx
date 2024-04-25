@@ -28,18 +28,15 @@ const RequestList = () => {
 
 	return (
 		<div>
-			<h1>내 질문 목록</h1>
-			<div className="questionBtn-container" style={{ display: "flex", flexDirection: "row-reverse" }}>
-				<Link to="/code/ask" style={{
-					backgroundColor: "#ff9e9e",
-					margin: "5px",
-					padding: "5px 10px",
-					border: "1px solid black",
-					color: "black",
-					textDecoration: "none",
-				}}> 질문하기 </Link>
+			<h1 className='mt-4 mb-4 pb-4 pl-[160px] border-b text-3xl font-bold'>내 질문 목록</h1>
+			<div className="flex flex-row-reverse">
+				<Link to="/code/ask" className='mt-5 mb-5 mr-[160px] pt-1 pb-1 pl-3 pr-3 border border-[#ff9e9e] bg-[#FFE6E6] text-[#474747] no-underline'> 질문하기 </Link>
 			</div>
-			<MyPostLayout posts={posts} />
+			<div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 ml-[10%] mr-[10%] mb-10 justify-items-center'>
+				{posts?.map(post => (
+					<MyPostLayout key={post.postId} posts={post} />
+				))}
+			</div>
 		</div>
 	)
 };
