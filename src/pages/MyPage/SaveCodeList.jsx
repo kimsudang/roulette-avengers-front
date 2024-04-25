@@ -3,7 +3,7 @@ import SaveCodeLayout from "../../components/PostLayout/SaveCode/SaveCodeLayout"
 import axios from "axios";
 
 const SaveCodeList = () => {
-  const [code, setCode] = useState([]);
+  const [codes, setCodes] = useState([]);
   const redirect_uri = import.meta.env.VITE_REDIRECT_URI;
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const SaveCodeList = () => {
         });
         const res = response.data;
         console.log(res);
-        setCode(res);
+        setCodes(res);
       } catch (error) {
         console.error('Failed to get saved code list: ', error);
       }
@@ -33,7 +33,7 @@ const SaveCodeList = () => {
       <div>
         <div className="flex justify-center pt-10 pb-10">
           <div className="flex w-1/2 h-screen border border-black rounded overflow-y-auto">
-						{Array.isArray(posts) && posts.map(post => (
+						{Array.isArray(codes) && codes.map(code => (
 							<SaveCodeLayout code={code} />
 						))}
           </div>
