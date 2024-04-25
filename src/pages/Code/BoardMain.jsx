@@ -39,7 +39,7 @@ const BoardMain = ({ defaultCurrentPage }) => {
       <h1 className='mt-6 mb-2 pb-4 pl-[160px] text-3xl font-bold'> 게시판 </h1>
       <div className="w-full border-t border-custom-pink-1" >
         <div className="flex flex-row-reverse">
-          <Link to="/code/ask" className='mt-5 mb-5 mr-[160px] pt-1 pb-1 pl-3 pr-3 border border-custom-pink-1 bg-custom-pink-2 text-[#474747] no-underline rounded'> 
+          <Link to="/post/ask" className='mt-5 mb-5 mr-[160px] pt-1 pb-1 pl-3 pr-3 border border-custom-pink-1 bg-custom-pink-2 text-[#474747] no-underline rounded'> 
             질문하기
           </Link>
         </div>
