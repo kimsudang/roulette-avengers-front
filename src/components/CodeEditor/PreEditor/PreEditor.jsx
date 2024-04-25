@@ -70,7 +70,7 @@ function PreEditor({postId, code}) {
 		};
 		try {
 			const access_token = localStorage.getItem('access_token');
-			const response = await axios.post(`${redirect_uri}/reply`, code, {
+			const response = await axios.post(`${redirect_uri}/post/choice`, code, {
 				headers: {
 					'Content-Type': 'application/json',
 					'Authorization': `Bearer ${access_token}`,
