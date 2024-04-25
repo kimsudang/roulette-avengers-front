@@ -73,7 +73,7 @@ const PostCodePreview = () => {
       <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
         <h1>{code.title}</h1>
       </div>
-      <PreEditor postId={postIdNum} code={code}/>
+      <PreEditor postId={postIdNum} replyIdNum={replyIdNum} code={code}/>
     </div>
   );
 }
