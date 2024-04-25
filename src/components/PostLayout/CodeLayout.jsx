@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const CodeLayout = ({ postId, code }) => {
     const post_Id = postId;
-    const backendURL = import.meta.env.REACT_APP_BACK_URL; // Using environment variable
+    const backendURI = import.meta.env.VITE_BACK_REDIRECT_URI; // Using environment variable
 
     const startChating = async (memberId) => {
         const my_member_id = localStorage.getItem('member_id');
@@ -12,13 +12,13 @@ const CodeLayout = ({ postId, code }) => {
         const chat_message = '대화을 시작합니다.';
         
         try {
-            const res = await axios.post(`${backendURL}/chat/start`, {
+            const res = await axios.post(`${backendURI}/chat/start`, {
                 sender: my_member_id,
                 reciver: chat_member_id,
                 message: chat_message,
             });
             console.log('대화 시작');
-            window.location = `${backendURL}/chat/${my_member_id}`; // Using environment variable for redirection
+            window.location = `${backendURI}/chat/${my_member_id}`; // Using environment variable for redirection
         } catch (error) {
             alert('대화 요청을 실패하였습니다.');
         }
