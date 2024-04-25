@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import Mail from '../../assets/mail.png';
+import Mail from '../../../assets/mail.png';
 import axios from "axios";
 
 const SaveCodeLayout = ({ code }) => {
