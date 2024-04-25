@@ -18,9 +18,6 @@ const RequestList = () => {
 		  });
 		  const myPosts = response.data;
 		  console.log('가져온 게시글:', myPosts); // 데이터 구조 확인
-		  if (!Array.isArray(myPosts)) {
-			throw new Error('응답이 배열이 아님');
-		  }
 		  setPosts(myPosts.postList);
 		} catch (error) {
 		  console.error('게시글 가져오기 오류:', error);
