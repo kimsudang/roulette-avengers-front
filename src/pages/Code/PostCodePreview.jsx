@@ -19,17 +19,20 @@ const PostCodePreview = () => {
 			try {
 				const access_token = localStorage.getItem('access_token');
         const replyIdPayload = { replyId: replyIdNum };
+				console.log('replyIdPayload');
 				const response = await axios.post(`${redirect_uri}/post/preview`, replyIdPayload, {
 						headers: {
 							'Content-Type': 'application/json',
 							Authorization: `Bearer ${access_token}`,
 						}
 					});
+					console.log('replyIdPayload');
 					const res = response.data;
 					setCode(res);
 
 				} catch (error) {
 					console.error('Error fetching posts:', error);
+					console.log('replyIdPayload');
 				}
 			};
     fetchcode();
