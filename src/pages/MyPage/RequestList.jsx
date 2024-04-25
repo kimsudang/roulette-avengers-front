@@ -11,7 +11,6 @@ const RequestList = () => {
 	  const fetchPosts = async () => {
 		try {
 		  const accessToken = localStorage.getItem('access_token');
-		// const memberId = localStorage.getItem('member_id');
 		  const response = await axios.get(`${back}`, {
 			headers: {
 			  Authorization: `Bearer ${accessToken}`,
