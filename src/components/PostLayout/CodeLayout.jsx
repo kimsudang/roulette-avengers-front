@@ -15,7 +15,7 @@ const CodeLayout = ({ postId, code }) => {
         try {
             const res = await axios.post(`${backendURI}/chat/start`, {
                 sender: my_member_id,
-                reciver: chat_member_id,
+                receiver: chat_member_id,
                 message: chat_message,
             });
             console.log('대화 시작');
