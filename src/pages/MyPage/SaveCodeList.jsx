@@ -4,7 +4,7 @@ import axios from "axios";
 
 const SaveCodeList = () => {
   const [codes, setCodes] = useState([]);
-  const redirect_uri = import.meta.env.VITE_REDIRECT_URI;
+  const redirect_uri = import.meta.env.VITE_BACK_REDIRECT_URI;
 
   useEffect(() => {
     const loadSaveCodeList = async () => {
