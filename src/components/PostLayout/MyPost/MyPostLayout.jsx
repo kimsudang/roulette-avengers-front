@@ -4,6 +4,7 @@ import axios from 'axios';
 const MyPostLayout = ({post}) => {
 	const navigate = useNavigate();
 	const redirect_uri = import.meta.env.VITE_BACK_REDIECT;
+	console.log(`${redirect_uri}/${post.imgSrc}`);
 
 	if (!post || post.length === 0) {
 		return <div className="post-container">게시글이 없습니다.</div>;
