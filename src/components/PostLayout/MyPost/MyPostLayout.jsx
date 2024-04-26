@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const MyPostLayout = ({post}) => {
 	const navigate = useNavigate();
-	const redirect_uri = import.meta.env.VITE_BACK_REDIECT;
+	const redirect_uri = import.meta.env.VITE_BACK_REDIRECT;
 	console.log(`${redirect_uri}/${post.imgSrc}`);
 
 	if (!post || post.length === 0) {
