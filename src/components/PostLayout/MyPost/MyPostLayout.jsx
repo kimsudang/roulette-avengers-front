@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const MyPostLayout = ({post}) => {
 	const navigate = useNavigate();
-	const redirect_uri = import.meta.env.VITE_BACK_REDIRECT;
+	const redirect_uri = 'https://k9bceeba41403a.user-app.krampoline.com';
 	console.log(`${redirect_uri}/${post.imgSrc}`);
 
 	if (!post || post.length === 0) {
