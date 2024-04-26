@@ -44,9 +44,9 @@ const Myinfo = () => {
       <div className="m-9 mb-7">
         <div className="p-3 mb-16">
           <p className="text-3xl">프로필</p>
-          <div className="flex items-center p-2">
+          <div className="flex items-center p-3">
             <img src={profile} alt="프로필 이미지" className="w-20 h-auto" />
-            <p className="pt-2 text-lg">
+            <p className="pt-2 pl-5 text-lg">
               <span>{userInfo.name}</span>님
             </p>
           </div>
@@ -57,7 +57,7 @@ const Myinfo = () => {
           <p className="text-3xl">소셜 로그인 계정</p>
           <div className="flex items-center p-7">
             <img src={kakao} className="w-12 h-auto" />
-            <p className="text-lg pl-1/4">
+            <p className="pl-5 text-lg">
               <span>{userInfo.email}</span>
             </p>
           </div>

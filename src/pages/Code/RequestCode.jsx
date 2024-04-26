@@ -68,33 +68,39 @@ function CodeQuestion () {
     }
   };
 
+	
 // 글 작성 페이지 화면
   return (
-    <div className="Request-container" style={{display:"flex", flexDirection:"column", padding:"10px" ,border: "1px solid black", borderRadius:"3px"}}>
-      <input 
-        type="text" 
-        value={title} 
-        onChange={handleTitleChange} 
-        placeholder="제목"
-        style={{margin:"5px 0px", width:"50%"}}
-      />
-      <textarea
-        value={contents} 
-        onChange={handleInputChange} 
-        placeholder="내용"
-        style={{
-          margin:"auto",
-          height:"200px",
-          width: "100%",
-          resize: "none",
-          overflowY: "auto"}}
-      />
-      <input 
-        type="file" 
-        onChange={handleImageChange} 
-        style={{margin:"5px 0px"}}
-      />
-      <button onClick={handlePostSubmit}>작성하기</button>
+    <div className="flex-col">
+      <div className="flex justify-center h-[50px] p-2 border border-b-black">
+        <div className="text-3xl"> 질문하기 </div>
+      </div>
+      <div className="flex justify-center">
+        <div className="flex flex-col w-1/2 mt-4 p-2.5 border border-black rounded">
+          <input 
+            type="text" 
+            value={title} 
+            onChange={handleTitleChange} 
+            placeholder="제목"
+            className="mb-3 border border-[#d5d5d5] rounded"
+          />
+          <textarea
+            value={contents} 
+            onChange={handleInputChange} 
+            placeholder="내용"
+            className="mx-auto mb-3 h-[200px] w-full resize-none overflow-y-auto border border-[#d5d5d5] rounded"
+          />
+          <input 
+            type="file" 
+            onChange={handleImageChange} 
+            className=""
+            style={{margin:"5px 0px"}}
+          />
+          <div className="flex justify-center">
+            <button className="w-[200px] bg-[#d5d5d5] border border-black rounded hover:bg-[#9c9c9c] transition-colors duration-300" onClick={handlePostSubmit}>작성하기</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
