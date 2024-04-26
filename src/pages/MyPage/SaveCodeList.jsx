@@ -18,7 +18,7 @@ const SaveCodeList = () => {
         return;
       }
       try {
-        const res = await axios.get(`${redirect_uri}/user`, {
+        const res = await axios.get(`${redirect_uri}/mypage/member`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
