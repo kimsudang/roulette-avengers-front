@@ -16,7 +16,7 @@ const MyPostLayout = ({post}) => {
 				</div>
 				<div className="mt-2.5 mb-1 w-full h-fit-content">
 					<p className="m-0 p-1 text-[#474747]">제목: {post.title}</p>
-					<p className="m-0 p-1 text-[#474747]">날짜: {post.createTime}</p>
+					<p className="m-0 p-1 text-[#474747]">날짜: {post.createdTime}</p>
 				</div>
 			</Link>
 		</div>

@@ -12,9 +12,9 @@ const RequestList = () => {
 		try {
 		  const accessToken = localStorage.getItem('access_token');
 		  const response = await axios.get(`${back}`, {
-			headers: {
-			  Authorization: `Bearer ${accessToken}`,
-			},
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
 		  });
 		  const myPosts = response.data;
 		  console.log('가져온 게시글:', myPosts); // 데이터 구조 확인
