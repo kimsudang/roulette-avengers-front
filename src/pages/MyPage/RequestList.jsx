@@ -35,7 +35,7 @@ const RequestList = () => {
 			</div>
 			<div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 ml-[10%] mr-[10%] mb-10 justify-items-center'>
 			  {posts?.map(post => (
-				<MyPostLayout key={posts.postId} post={post} />
+				<MyPostLayout key={post.postId} post={post} />
 			  ))}
         	</div>
 		</div>
