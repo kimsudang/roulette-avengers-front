@@ -10,14 +10,14 @@ const Login = () => {
   };
 
   return (
-    <div className="w-1/2 min-h-96 absolute transform translate-x-[50%] translate-y-52">
-      <p className="ml-10 text-xl font-bold">Sign UP</p>
+    <div className="w-1/2 min-h-96 absolute transform translate-x-[50%] translate-y-48">
+      <p className="ml-[45%] text-2xl font-bold">Sign UP</p>
       <button
         type="button"
         onClick={loginHandler}
-        className="w-1/2 h-60px border-0 p-10% mt-5 transform translate-x-1/2 translate-y-28"
+        className="w-1/2 h-12 p-0 mt-5 transform translate-x-1/2 translate-y-24 border-0"
       >
-        <img src={kakaoLogin} className="w-full h-12 " />
+        <img src={kakaoLogin} className="w-full h-14 " />
       </button>
     </div>
   );

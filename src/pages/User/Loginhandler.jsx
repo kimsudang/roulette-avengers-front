@@ -39,7 +39,7 @@ const LoginHandeler = () => {
   }, [code, navigate]);
 
   return (
-    <div className="LoginHandeler w-1/2 min-h-96 absolute transform translate-x-[50%] translate-y-52">
+    <div className="LoginHandeler w-1/2 min-h-96 absolute transform translate-x-[50%] translate-y-48">
       <div className="notice">
         <p className="mb-4 ml-10 text-xl font-bold">로그인 진행 중 입니다.</p>
         <p className="ml-10 text-xl font-bold">잠시만 기다려주세요.</p>
